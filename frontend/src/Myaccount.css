@@ -1,0 +1,431 @@
+html, body, #root, .App {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #030915;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: #e6e6e6;
+}
+
+.App {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-card {
+  width: min(1200px, 80vw);
+  height: min(860px, 90vh);
+  background: #07182E;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+  isolation: isolate;
+}
+
+/* Decorative rotating gradient background like the reference card */
+.main-card::before {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  left: -50%;
+  top: -50%;
+  background-image: linear-gradient(180deg, rgb(0, 183, 255), rgb(255, 48, 255));
+  animation: rotBGimg 6s linear infinite;
+  transform-origin: center center;
+  z-index: 0;
+  opacity: 0.45;
+}
+
+@keyframes rotBGimg {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.main-card::after {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border-radius: 16px;
+  background: #07182E;
+  z-index: 0;
+}
+
+.main-header {
+  position: relative;
+  z-index: 2;
+  height: 100px;
+  min-height: 100px;
+  background: #0a2344;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.header-left-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-greeting {
+  font-weight: 600;
+  color: #ffffff;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.2);
+}
+
+.cards-area {
+  position: relative;
+  z-index: 1;
+  padding: 18px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  overflow: hidden;
+  flex: 1 1 auto;
+}
+
+/* Role cards using the referenced style, adapted */
+.card {
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
+  background: #07182E;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.card h2 {
+  z-index: 1;
+  color: #ffffff;
+  font-size: 1.4rem;
+  margin: 0 0 6px 0;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 130%;
+  background-image: linear-gradient(180deg, rgb(0, 183, 255), rgb(255, 48, 255));
+  animation: rotBGimg 3s linear infinite;
+  transition: all 0.2s linear;
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  background: #07182E;
+  inset: 5px;
+  border-radius: 15px;
+}
+
+/* Dark variant for inner content background */
+.role-card.dark::after { background: #000; }
+
+.card-visibility {
+  z-index: 2;
+  color: #a8b3c7;
+  font-size: 0.85rem;
+  margin-bottom: 6px;
+}
+
+.card-content-text {
+  z-index: 2;
+  color: #e8f6ff;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.card-access-denied {
+  z-index: 2;
+  color: #ff6b6b;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+/* Logout button - From Uiverse.io by vinodjangid07 */
+.Btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition-duration: .3s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+  background-color: rgb(255, 65, 65);
+}
+
+/* plus sign */
+.Btn .sign {
+  width: 100%;
+  transition-duration: .3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Btn .sign svg {
+  width: 17px;
+}
+
+.Btn .sign svg path {
+  fill: white;
+}
+
+/* text */
+.Btn .text {
+  position: absolute;
+  right: 0%;
+  width: 0%;
+  opacity: 0;
+  color: white;
+  font-size: 1.2em;
+  font-weight: 600;
+  transition-duration: .3s;
+}
+
+/* hover effect on button width */
+.Btn:hover {
+  width: 125px;
+  border-radius: 40px;
+  transition-duration: .3s;
+}
+
+.Btn:hover .sign {
+  width: 30%;
+  transition-duration: .3s;
+  padding-left: 20px;
+}
+
+/* hover effect button's text */
+.Btn:hover .text {
+  opacity: 1;
+  width: 70%;
+  transition-duration: .3s;
+  padding-right: 10px;
+}
+
+/* button click effect*/
+.Btn:active {
+  transform: translate(2px ,2px);
+}
+
+/* User Management button (conic border glow) */
+.um-btn {
+  --border-radius: 15px;
+  --border-width: 4px;
+  position: relative;
+  appearance: none;
+  padding: 10px 16px;
+  border: 0;
+  background-color: #212121;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  z-index: 2;
+  border-radius: var(--border-radius);
+  display: inline-grid;
+  place-items: center;
+  line-height: 1;
+  box-sizing: border-box;
+}
+
+.um-btn::after {
+  --m-i: linear-gradient(#000, #000);
+  --m-o: content-box, padding-box;
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: var(--border-width);
+  border-radius: var(--border-radius);
+  background-image: conic-gradient(
+    #488cfb,
+    #29dbbc,
+    #ddf505,
+    #ff9f0e,
+    #e440bb,
+    #655adc,
+    #488cfb
+  );
+  -webkit-mask-image: var(--m-i), var(--m-i);
+  mask-image: var(--m-i), var(--m-i);
+  -webkit-mask-origin: var(--m-o);
+  mask-origin: var(--m-o);
+  -webkit-mask-clip: var(--m-o);
+  mask-clip: var(--m-o);
+  mask-composite: exclude;
+  -webkit-mask-composite: destination-out;
+  filter: hue-rotate(0);
+  animation: rotate-hue linear 500ms infinite;
+  animation-play-state: paused;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+.um-btn:hover::after { animation-play-state: running; }
+
+@keyframes rotate-hue { to { filter: hue-rotate(1turn); } }
+
+/* Responsive - Tablet */
+@media (max-width: 1100px) {
+  .cards-area { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 1024px) {
+  .main-card { 
+    width: min(95vw, 100%); 
+    height: min(95vh, 900px); 
+  }
+  .main-header { 
+    padding: 0 16px; 
+    height: 90px;
+    min-height: 90px;
+  }
+  .header-greeting { 
+    font-size: 1rem; 
+  }
+  .cards-area { 
+    padding: 16px; 
+    gap: 16px; 
+  }
+  .card { 
+    min-height: 200px; 
+  }
+  .card h2 { 
+    font-size: 1.3rem; 
+  }
+}
+
+@media (max-width: 768px) {
+  .main-card { 
+    width: 100vw; 
+    height: 100vh; 
+    border-radius: 0; 
+    max-width: 100%;
+    max-height: 100%;
+  }
+  .main-card::after { 
+    inset: 0; 
+    border-radius: 0; 
+  }
+  .main-header { 
+    padding: 0 14px; 
+    height: 85px;
+    min-height: 85px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .header-left-actions { 
+    gap: 10px; 
+    flex-wrap: wrap;
+  }
+  .header-greeting { 
+    font-size: 0.95rem; 
+    width: 100%;
+    text-align: center;
+    order: 3;
+  }
+  .cards-area { 
+    grid-template-columns: 1fr; 
+    gap: 14px; 
+    padding: 14px; 
+    overflow-y: auto;
+  }
+  .card { 
+    min-height: 180px; 
+  }
+  .card h2 { 
+    font-size: 1.2rem; 
+  }
+  .card-visibility {
+    font-size: 0.8rem;
+  }
+  .card-content-text,
+  .card-access-denied {
+    font-size: 0.9rem;
+  }
+  .Btn {
+    width: 40px;
+    height: 40px;
+  }
+  .Btn .sign svg {
+    width: 15px;
+  }
+  .um-btn {
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-header { 
+    padding: 0 12px; 
+    height: 80px;
+    min-height: 80px;
+  }
+  .header-left-actions { 
+    gap: 8px; 
+  }
+  .header-greeting { 
+    font-size: 0.9rem; 
+  }
+  .cards-area { 
+    gap: 12px; 
+    padding: 12px; 
+  }
+  .card { 
+    min-height: 160px; 
+    border-radius: 16px;
+  }
+  .card h2 { 
+    font-size: 1.1rem; 
+    margin: 0 0 4px 0;
+  }
+  .card::after {
+    inset: 4px;
+    border-radius: 12px;
+  }
+  .card-visibility {
+    font-size: 0.75rem;
+    margin-bottom: 4px;
+  }
+  .card-content-text,
+  .card-access-denied {
+    font-size: 0.85rem;
+  }
+  .Btn {
+    width: 38px;
+    height: 38px;
+  }
+  .Btn .sign svg {
+    width: 14px;
+  }
+  .Btn:hover {
+    width: 110px;
+  }
+  .um-btn {
+    padding: 7px 12px;
+    font-size: 12px;
+    --border-width: 3px;
+  }
+}

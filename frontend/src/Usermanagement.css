@@ -1,0 +1,394 @@
+/* Modal Backdrop - Blurred and darkened background */
+.um-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  padding: 20px;
+}
+
+/* Glassmorphism Modal Container */
+.um-modal-container {
+  background: rgba(7, 24, 46, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  width: min(90%, 1000px);
+  max-width: 1000px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 21;
+}
+
+/* Modal Header */
+.um-modal-header {
+  padding: 24px 28px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(10, 35, 68, 0.6);
+}
+
+.um-modal-title {
+  margin: 0;
+  color: #ffffff;
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Modal Content */
+.um-modal-content {
+  padding: 28px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* Add User Button Section */
+.um-add-user-section {
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* Add User Button - From Uiverse.io by zebra76966 */
+button {
+  border: none;
+}
+
+.c-button {
+  background: linear-gradient(140deg, rgba(75, 118, 200, 1) 0%, rgba(31, 70, 145, 1) 100%);
+  border-radius: 45px;
+  font-size: 25px;
+  text-align: left;
+  padding: 11px 0px 11px 0px;
+  border: 4px solid rgb(37, 37, 37) !important;
+  border-style: outset;
+  box-shadow: -6px -5px 18px rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+}
+
+.c-button .c-main {
+  border-radius: 45px;
+  color: rgba(255, 255, 255, 1);
+  padding: 11px 25px 11px 2px;
+  box-shadow: inset 0px 0px 5px rgba(17, 17, 17, 0);
+  transition: all 0.5s ease-in-out;
+  border: 1px solid transparent;
+}
+
+.c-ico .c-blur {
+  background: linear-gradient(318deg, rgba(75, 118, 200, 1) 0%, rgba(31, 70, 145, 1) 100%);
+  border-radius: 100%;
+  margin-left: 0;
+  padding: 8px 23px;
+  filter: blur(1px);
+  text-align: center;
+}
+
+.c-ico {
+  position: relative;
+  margin-right: 20px;
+}
+
+.c-ico .ico-text {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Hovering */
+.c-button .c-main:hover {
+  box-shadow: inset 0px 0px 5px rgba(17, 17, 17, 0.6);
+  border: 1px solid rgba(26, 26, 26, 0.5);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Table Container */
+.um-table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.um-loading,
+.um-empty {
+  text-align: center;
+  padding: 40px;
+  color: #e6e6e6;
+  font-size: 1.1rem;
+}
+
+/* Users Table */
+.um-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.um-table thead {
+  background: rgba(10, 35, 68, 0.8);
+}
+
+.um-table th {
+  padding: 16px 20px;
+  text-align: left;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1rem;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.um-table td {
+  padding: 14px 20px;
+  color: #e6e6e6;
+  font-size: 0.95rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.um-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transition: background 0.2s ease;
+}
+
+.um-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Actions Cell */
+.um-actions-cell {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Action Buttons */
+.um-action-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  color: #e6e6e6;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.um-edit-btn {
+  border-color: rgba(75, 118, 200, 0.5);
+  color: rgba(75, 118, 200, 1);
+}
+
+.um-edit-btn:hover {
+  background: rgba(75, 118, 200, 0.2);
+  border-color: rgba(75, 118, 200, 0.8);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(75, 118, 200, 0.3);
+}
+
+.um-delete-btn {
+  border-color: rgba(255, 65, 65, 0.5);
+  color: rgba(255, 65, 65, 1);
+}
+
+.um-delete-btn:hover {
+  background: rgba(255, 65, 65, 0.2);
+  border-color: rgba(255, 65, 65, 0.8);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(255, 65, 65, 0.3);
+}
+
+/* Responsive Design - Desktop (default) */
+@media (min-width: 1025px) {
+  .um-modal-container {
+    width: min(90%, 1000px);
+  }
+  
+  .um-table th,
+  .um-table td {
+    padding: 16px 20px;
+  }
+}
+
+/* Responsive Design - Laptop/Tablet */
+@media (max-width: 1024px) {
+  .um-modal-backdrop {
+    padding: 16px;
+  }
+
+  .um-modal-container {
+    width: min(95%, 900px);
+    max-height: 85vh;
+  }
+
+  .um-modal-header {
+    padding: 20px 24px;
+  }
+
+  .um-modal-title {
+    font-size: 1.6rem;
+  }
+
+  .um-modal-content {
+    padding: 24px;
+  }
+
+  .c-button {
+    font-size: 22px;
+    padding: 10px 0px 10px 0px;
+  }
+
+  .um-table th,
+  .um-table td {
+    padding: 12px 16px;
+    font-size: 0.9rem;
+  }
+
+  .um-action-btn {
+    padding: 6px 10px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Responsive Design - Mobile */
+@media (max-width: 768px) {
+  .um-modal-backdrop {
+    padding: 12px;
+  }
+
+  .um-modal-container {
+    width: 100%;
+    max-height: 95vh;
+    border-radius: 20px;
+  }
+
+  .um-modal-header {
+    padding: 16px 20px;
+  }
+
+  .um-modal-title {
+    font-size: 1.4rem;
+  }
+
+  .um-modal-content {
+    padding: 20px;
+  }
+
+  .um-add-user-section {
+    margin-bottom: 20px;
+  }
+
+  .c-button {
+    font-size: 20px;
+    padding: 9px 0px 9px 0px;
+    width: 100%;
+  }
+
+  .c-button .c-main {
+    padding: 9px 20px 9px 2px;
+    justify-content: center;
+  }
+
+  .c-ico {
+    margin-right: 15px;
+  }
+
+  .um-table-container {
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .um-table {
+    min-width: 500px;
+  }
+
+  .um-table th,
+  .um-table td {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
+
+  .um-table th {
+    font-size: 0.9rem;
+  }
+
+  .um-actions-cell {
+    gap: 8px;
+  }
+
+  .um-action-btn {
+    padding: 6px 8px;
+    font-size: 0.85rem;
+  }
+
+  .um-loading,
+  .um-empty {
+    padding: 30px;
+    font-size: 1rem;
+  }
+}
+
+/* Extra Small Mobile */
+@media (max-width: 480px) {
+  .um-modal-backdrop {
+    padding: 8px;
+  }
+
+  .um-modal-container {
+    border-radius: 16px;
+  }
+
+  .um-modal-header {
+    padding: 14px 16px;
+  }
+
+  .um-modal-title {
+    font-size: 1.2rem;
+  }
+
+  .um-modal-content {
+    padding: 16px;
+  }
+
+  .c-button {
+    font-size: 18px;
+    padding: 8px 0px 8px 0px;
+  }
+
+  .c-button .c-main {
+    padding: 8px 16px 8px 2px;
+  }
+
+  .c-ico {
+    margin-right: 12px;
+  }
+
+  .um-table th,
+  .um-table td {
+    padding: 8px 10px;
+    font-size: 0.8rem;
+  }
+
+  .um-action-btn {
+    padding: 5px 6px;
+    font-size: 0.8rem;
+  }
+}
+
+
+

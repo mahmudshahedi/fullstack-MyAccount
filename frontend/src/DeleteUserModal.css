@@ -1,0 +1,226 @@
+/* Modal Backdrop - Higher z-index than main modal */
+.delete-user-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 30;
+  padding: 20px;
+}
+
+/* Glassmorphism Modal Container */
+.delete-user-modal-container {
+  background: rgba(7, 24, 46, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  width: min(90%, 450px);
+  max-width: 450px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 31;
+}
+
+/* Modal Header */
+.delete-user-modal-header {
+  padding: 24px 28px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(10, 35, 68, 0.6);
+}
+
+.delete-user-modal-title {
+  margin: 0;
+  color: #ffffff;
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Modal Content */
+.delete-user-modal-content {
+  padding: 28px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* Loading State */
+.delete-user-loading {
+  text-align: center;
+  padding: 40px;
+  color: #e6e6e6;
+  font-size: 1.1rem;
+}
+
+/* Warning Section */
+.delete-user-warning {
+  text-align: center;
+  margin-bottom: 24px;
+  padding: 20px;
+  background: rgba(255, 65, 65, 0.1);
+  border: 1px solid rgba(255, 65, 65, 0.3);
+  border-radius: 12px;
+}
+
+.delete-user-warning i {
+  font-size: 3rem;
+  color: rgba(255, 65, 65, 1);
+  margin-bottom: 12px;
+  display: block;
+}
+
+.delete-user-warning p {
+  margin: 0;
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* User Info Section */
+.delete-user-info {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.delete-user-info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.delete-user-info-item:last-child {
+  border-bottom: none;
+}
+
+.delete-user-info-label {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.delete-user-info-value {
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* Note Section */
+.delete-user-note {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+/* Error Message */
+.delete-user-error {
+  background: rgba(255, 65, 65, 0.2);
+  border: 1px solid rgba(255, 65, 65, 0.5);
+  border-radius: 8px;
+  padding: 12px;
+  color: rgba(255, 65, 65, 1);
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Form Actions */
+.delete-user-form-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 24px;
+}
+
+.delete-user-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.delete-user-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.delete-user-btn-cancel {
+  background: rgba(0, 0, 0, 0.3);
+  color: #e6e6e6;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.delete-user-btn-cancel:hover:not(:disabled) {
+  background: rgba(0, 0, 0, 0.5);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.delete-user-btn-delete {
+  background: linear-gradient(140deg, rgba(255, 65, 65, 1) 0%, rgba(200, 30, 30, 1) 100%);
+  color: #ffffff;
+  border-color: rgba(255, 65, 65, 0.5);
+}
+
+.delete-user-btn-delete:hover:not(:disabled) {
+  background: linear-gradient(140deg, rgba(255, 85, 85, 1) 0%, rgba(220, 50, 50, 1) 100%);
+  box-shadow: 0 4px 12px rgba(255, 65, 65, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .delete-user-modal-backdrop {
+    padding: 12px;
+  }
+
+  .delete-user-modal-container {
+    width: 100%;
+    max-height: 95vh;
+    border-radius: 20px;
+  }
+
+  .delete-user-modal-header {
+    padding: 16px 20px;
+  }
+
+  .delete-user-modal-title {
+    font-size: 1.4rem;
+  }
+
+  .delete-user-modal-content {
+    padding: 20px;
+  }
+
+  .delete-user-warning i {
+    font-size: 2.5rem;
+  }
+
+  .delete-user-form-actions {
+    flex-direction: column;
+  }
+
+  .delete-user-btn {
+    width: 100%;
+  }
+}
+
+

@@ -311,7 +311,7 @@ This project is open-source and available for modification and distribution.
 
 For a comprehensive video tutorial and walkthrough of the application, visit:
 
-**🎥 YouTube Channel**: https://youtu.be/cp0jD2RW8to  
+**🎥 YouTube Channel**: https://youtu.be/jt7ABkCtvek
 **🔗 LinkedIn**: https://www.linkedin.com/in/mahmud-shahedi/
 
 ---
